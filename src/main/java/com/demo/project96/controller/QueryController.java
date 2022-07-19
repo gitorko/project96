@@ -71,9 +71,4 @@ public class QueryController {
         }
     }
 
-//    @SchemaMapping(typeName = "Post", field = "comment")
-//    public List<Comment> getComments(Comment comment) {
-//        return commentRepository.findAll();
-//    }
-
 }
