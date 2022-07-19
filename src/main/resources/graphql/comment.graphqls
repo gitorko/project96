@@ -1,0 +1,19 @@
+type Comment {
+    id: ID!
+    message: String!
+    createdBy: String!
+    createdDt: DateTime!
+    post: Post
+}
+
+extend type Query {
+    findAllComments: [Comment]!
+    findCommentById(id: ID!): Comment!
+    findCommentsByPostId(postId: ID!): [Comment]
+}
+
+extend type Mutation {
+    createComment(message: String!, createdBy: String!, postId: ID!): Comment!
+    updateComment(id: ID!, message: String!): Comment!
+    deleteComment(id: ID!): Boolean
+}

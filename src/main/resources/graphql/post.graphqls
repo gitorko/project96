@@ -1,0 +1,27 @@
+scalar DateTime
+
+type Post {
+    id: ID!
+    header: String!
+    createdDt: DateTime!
+    createdBy: String!
+}
+
+type PostPage {
+    posts: [Post]
+    totalElements: Int
+    totalPages: Int
+    currentPage: Int
+    size: Int
+}
+
+type Query {
+    findAllPosts: [Post]
+    findPostById(id: ID!): Post
+    countPosts: Int!
+    findAllPostsPage(page: Int = 0, size: Int = 20): PostPage
+}
+
+type Mutation {
+    createPost(header: String!, createdBy: String!): Post
+}
