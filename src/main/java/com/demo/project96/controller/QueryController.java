@@ -79,6 +79,7 @@ public class QueryController {
      * Hibernate Lazy fetch prevents the post entity from being fetched even without this method.
      * So no unnecessary db call is made if post entity is not needed in the response even without this method.
      * However if there is any reason why we want to control a single field explicitly we can use this approach and define how that field gets data.
+     * eg: You want to sort the comments
      */
     @SchemaMapping(typeName = "Comment", field = "post")
     public Post getPost(Comment comment) {
