@@ -142,6 +142,33 @@
 			"response": []
 		},
 		{
+			"name": "Get All Comments - Post Not Needed",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n  findAllComments{\n    id\n    message\n    createdBy\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get Comment By Id",
 			"request": {
 				"method": "POST",
@@ -150,6 +177,33 @@
 					"mode": "graphql",
 					"graphql": {
 						"query": "query {\n  findCommentById(id: 1) {\n    id\n    message\n    createdBy\n    createdDt\n    post {\n        id\n        header\n        createdBy\n        createdDt\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comment By Id - Post Not Needed",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n  findCommentById(id: 1) {\n    id\n    message\n    createdBy\n    createdDt\n  }\n}",
 						"variables": ""
 					}
 				},

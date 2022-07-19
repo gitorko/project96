@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -48,7 +49,9 @@ public class QueryController {
 
     @QueryMapping
     public Iterable<Comment> findAllComments() {
-        return commentRepository.findAll();
+        //Will cause N+1 problem
+        //return commentRepository.findAll();
+        return commentRepository.findAllComments();
     }
 
     @QueryMapping
@@ -69,6 +72,17 @@ public class QueryController {
         } else {
             throw new RuntimeException("Post not found!");
         }
+    }
+
+    /**
+     * Functionality will work same without this method as well.
+     * Hibernate Lazy fetch prevents the post entity from being fetched even without this method.
+     * So no unnecessary db call is made if post entity is not needed in the response even without this method.
+     * However if there is any reason why we want to control a single field explicitly we can use this approach and define how that field gets data.
+     */
+    @SchemaMapping(typeName = "Comment", field = "post")
+    public Post getPost(Comment comment) {
+        return postRepository.findById(comment.getPost().getId()).orElseThrow(null);
     }
 
 }

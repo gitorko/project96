@@ -5,6 +5,7 @@ import java.time.ZonedDateTime;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,7 +42,7 @@ public class Comment implements Serializable {
     @Column(name = "created_by")
     private String createdBy;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "post_id", nullable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
     private Post post;
 }

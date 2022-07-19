@@ -8,7 +8,7 @@ spring:
     username: test
     password: test@123
   jpa:
-    show-sql: false
+    show-sql: true
     hibernate.ddl-auto: update
     properties.hibernate.temp.use_jdbc_metadata_defaults: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect

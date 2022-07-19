@@ -34,25 +34,24 @@ public class Main {
     public CommandLineRunner seedData(ApplicationContext ctx) {
         return args -> {
             List<String> person = Arrays.asList("Jack", "Adam", "Raj");
-            commentRepository.deleteAll();
-            postRepository.deleteAll();
-            IntStream.range(1, 50).forEach(i -> {
-                int rand1 = new Random().nextInt(2 - 0 + 1) + 0;
-                Post post = postRepository.save(Post.builder()
-                        .header("header_" + i)
-                        .createdBy(person.get(rand1))
-                        .createdDt(ZonedDateTime.now())
-                        .build());
-                IntStream.range(1, 4).forEach(j -> {
-                    int rand2 = new Random().nextInt(2 - 0 + 1) + 0;
-                    Comment comment = Comment.builder().message(post.getHeader() + "_comment_" + j)
-                            .createdBy(person.get(rand2))
+            if (commentRepository.count() == 0) {
+                IntStream.range(1, 50).forEach(i -> {
+                    int rand1 = new Random().nextInt(2 - 0 + 1) + 0;
+                    Post post = postRepository.save(Post.builder()
+                            .header("header_" + i)
+                            .createdBy(person.get(rand1))
                             .createdDt(ZonedDateTime.now())
-                            .post(post).build();
-                    commentRepository.save(comment);
+                            .build());
+                    IntStream.range(1, 4).forEach(j -> {
+                        int rand2 = new Random().nextInt(2 - 0 + 1) + 0;
+                        Comment comment = Comment.builder().message(post.getHeader() + "_comment_" + j)
+                                .createdBy(person.get(rand2))
+                                .createdDt(ZonedDateTime.now())
+                                .post(post).build();
+                        commentRepository.save(comment);
+                    });
                 });
-            });
+            }
         };
     }
-
 }
