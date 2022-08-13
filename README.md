@@ -1,6 +1,6 @@
 # GraphQL
 
-[https://gitorko.github.io/](https://gitorko.github.io/)
+[https://gitorko.github.io/spring-graphql/](https://gitorko.github.io/spring-graphql/)
 
 Spring Boot & GraphQL
 
