@@ -1,4 +1,4 @@
-# GraphQL
+# Project 96
 
 Spring Boot & GraphQL
 
