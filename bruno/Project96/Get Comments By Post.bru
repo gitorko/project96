@@ -1,0 +1,29 @@
+meta {
+  name: Get Comments By Post
+  type: graphql
+  seq: 9
+}
+
+post {
+  url: http://localhost:8080/api/graphql
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  query {
+    findCommentsByPostId(postId: 1) {
+         id
+         message
+         createdBy
+         createdDt
+
+    },
+    findPostById(id: 1) {
+          id
+          header
+          createdBy
+          createdDt
+      }
+  }
+}

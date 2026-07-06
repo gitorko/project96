@@ -1,0 +1,21 @@
+meta {
+  name: Update Comment
+  type: graphql
+  seq: 12
+}
+
+post {
+  url: http://localhost:8080/api/graphql
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  mutation {
+    updateComment(id: 1, message: "comment updated") {
+      id
+      message
+      createdBy
+    }
+  }
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Get All Posts
+  type: graphql
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/api/graphql
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  query {
+    findAllPosts{
+      id
+      header
+      createdBy
+      createdDt
+    }
+  }
+}

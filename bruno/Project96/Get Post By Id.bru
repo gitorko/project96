@@ -1,0 +1,21 @@
+meta {
+  name: Get Post By Id
+  type: graphql
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/api/graphql
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  query {
+    findPostById (id: 1) {
+      id
+      header
+      createdBy
+    }
+  }
+}

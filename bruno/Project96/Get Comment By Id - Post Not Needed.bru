@@ -1,0 +1,22 @@
+meta {
+  name: Get Comment By Id - Post Not Needed
+  type: graphql
+  seq: 8
+}
+
+post {
+  url: http://localhost:8080/api/graphql
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  query {
+    findCommentById(id: 1) {
+      id
+      message
+      createdBy
+      createdDt
+    }
+  }
+}

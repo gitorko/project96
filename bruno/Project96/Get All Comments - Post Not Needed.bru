@@ -1,0 +1,21 @@
+meta {
+  name: Get All Comments - Post Not Needed
+  type: graphql
+  seq: 6
+}
+
+post {
+  url: http://localhost:8080/api/graphql
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  query {
+    findAllComments{
+      id
+      message
+      createdBy
+    }
+  }
+}

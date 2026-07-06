@@ -4,25 +4,19 @@ Spring Boot & GraphQL
 
 [https://gitorko.github.io/spring-graphql/](https://gitorko.github.io/spring-graphql/)
 
-### Version
+## Version
 
 Check version
 
 ```bash
 $java --version
 openjdk version "21.0.3" 2024-04-16 LTS
-
-node --version
-v16.16.0
-
-yarn --version
-1.22.18
 ```
 
-### Postgres DB
+## Postgres DB
 
 ```
-docker run -p 5432:5432 --name pg-container -e POSTGRES_PASSWORD=password -d postgres:9.6.10
+docker run -p 5432:5432 --name pg-container -e POSTGRES_PASSWORD=password -d postgres:18.4
 docker ps
 docker exec -it pg-container psql -U postgres -W postgres
 CREATE USER test WITH PASSWORD 'test@123';
@@ -33,7 +27,7 @@ docker stop pg-container
 docker start pg-container
 ```
 
-### Dev
+## Dev
 
 To run the backend in dev mode.
 Postgres DB is needed to run the integration tests during build.
@@ -43,7 +37,7 @@ Postgres DB is needed to run the integration tests during build.
 ./gradlew bootRun
 ```
 
-### Prod
+## Prod
 
 To run as a single jar.
 
@@ -53,7 +47,7 @@ cd project96/build/libs
 java -jar project96-1.0.0.jar
 ```
 
-### Graph IQL
+## Graph IQL
 
 GraphQL comes with a browser client to test the Query. This can be enabled in properties
 
@@ -63,8 +57,8 @@ graphql.graphiql.enabled: true
 
 Open [http://localhost:8080/graphiql](http://localhost:8080/graphiql)
 
-### Postman
+## Bruno
 
-Import the postman collection to postman
+Import the Bruno collection to [Bruno](https://www.usebruno.com/)
 
-[Postman Collection](https://github.com/gitorko/project96/blob/main/postman/Project96.postman_collection.json)
+[Bruno Collection](https://github.com/gitorko/project96/blob/main/bruno/Project96)

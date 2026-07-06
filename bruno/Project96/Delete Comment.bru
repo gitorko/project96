@@ -1,0 +1,17 @@
+meta {
+  name: Delete Comment
+  type: graphql
+  seq: 13
+}
+
+post {
+  url: http://localhost:8080/api/graphql
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  mutation {
+    deleteComment(id: 1)
+  }
+}

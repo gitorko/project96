@@ -1,0 +1,21 @@
+meta {
+  name: Save Comment
+  type: graphql
+  seq: 11
+}
+
+post {
+  url: http://localhost:8080/api/graphql
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  mutation {
+    createComment(message: "comment1",createdBy: "John", postId: 1) {
+      id
+      message
+      createdBy
+    }
+  }
+}

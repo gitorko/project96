@@ -83,7 +83,8 @@ public class QueryController {
      */
     @SchemaMapping(typeName = "Comment", field = "post")
     public Post getPost(Comment comment) {
-        return postRepository.findById(comment.getPost().getId()).orElseThrow(null);
+        return postRepository.findById(comment.getPost().getId())
+                .orElseThrow(() -> new RuntimeException("Post not found!"));
     }
 
 }

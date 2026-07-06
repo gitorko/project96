@@ -1,0 +1,19 @@
+meta {
+  name: Save Post
+  type: graphql
+  seq: 10
+}
+
+post {
+  url: http://localhost:8080/api/graphql
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  mutation {
+    createPost(header: "Hello world",createdBy: "John") {
+      id
+    }
+  }
+}
