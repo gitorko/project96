@@ -1,4 +1,5 @@
 scalar DateTime
+scalar Long
 
 type Post {
     id: ID!
@@ -18,7 +19,7 @@ type PostPage {
 type Query {
     findAllPosts: [Post]
     findPostById(id: ID!): Post
-    countPosts: Int!
+    countPosts: Long!
     findAllPostsPage(page: Int = 0, size: Int = 20): PostPage
 }
 
